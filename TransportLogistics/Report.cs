@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace TransportLogistics
 {
-    public partial class Form1 : Form
+    public partial class Report : Form
     {
-        public Form1()
+        public Report()
         {
             InitializeComponent();
+        }
+
+        private void Report_Load(object sender, EventArgs e)
+        {
+
+            //this.reportViewer1.RefreshReport();
         }
     }
 }
