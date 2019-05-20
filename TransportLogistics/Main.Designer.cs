@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
-            this.transport = new System.Windows.Forms.ComboBox();
+            this.madeScheme = new System.Windows.Forms.Button();
+            this.truckBox = new System.Windows.Forms.ComboBox();
             this.width = new System.Windows.Forms.TextBox();
             this.height = new System.Windows.Forms.TextBox();
             this.weight = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.addBox = new System.Windows.Forms.Button();
+            this.chooseCargo = new System.Windows.Forms.Button();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.createReport = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,42 +51,51 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cargoBox = new System.Windows.Forms.ComboBox();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.button2 = new System.Windows.Forms.Button();
+            this.chooseTruck = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
+            this.loadData = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tableBox = new System.Windows.Forms.ComboBox();
+            this.deleteData = new System.Windows.Forms.Button();
+            this.saveData = new System.Windows.Forms.Button();
+            this.addData = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.database1DataSet = new TransportLogistics.Database1DataSet();
             this.database1DataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.database1DataSetBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSetBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // madeScheme
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(760, 481);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 32);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Построить схему";
-            this.button1.UseVisualStyleBackColor = true;
+            this.madeScheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.madeScheme.Location = new System.Drawing.Point(760, 481);
+            this.madeScheme.Name = "madeScheme";
+            this.madeScheme.Size = new System.Drawing.Size(130, 32);
+            this.madeScheme.TabIndex = 1;
+            this.madeScheme.Text = "Построить схему";
+            this.madeScheme.UseVisualStyleBackColor = true;
             // 
-            // transport
+            // truckBox
             // 
-            this.transport.FormattingEnabled = true;
-            this.transport.Location = new System.Drawing.Point(22, 120);
-            this.transport.Name = "transport";
-            this.transport.Size = new System.Drawing.Size(217, 21);
-            this.transport.TabIndex = 2;
+            this.truckBox.FormattingEnabled = true;
+            this.truckBox.Location = new System.Drawing.Point(22, 120);
+            this.truckBox.Name = "truckBox";
+            this.truckBox.Size = new System.Drawing.Size(217, 21);
+            this.truckBox.TabIndex = 2;
             // 
             // width
             // 
@@ -139,15 +148,15 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Выберите вес";
             // 
-            // addBox
+            // chooseCargo
             // 
-            this.addBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addBox.Location = new System.Drawing.Point(567, 428);
-            this.addBox.Name = "addBox";
-            this.addBox.Size = new System.Drawing.Size(130, 32);
-            this.addBox.TabIndex = 11;
-            this.addBox.Text = "Добавить груз";
-            this.addBox.UseVisualStyleBackColor = true;
+            this.chooseCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chooseCargo.Location = new System.Drawing.Point(567, 428);
+            this.chooseCargo.Name = "chooseCargo";
+            this.chooseCargo.Size = new System.Drawing.Size(130, 32);
+            this.chooseCargo.TabIndex = 11;
+            this.chooseCargo.Text = "Добавить груз";
+            this.chooseCargo.UseVisualStyleBackColor = true;
             // 
             // listBox1
             // 
@@ -274,13 +283,13 @@
             this.radioButton3.Text = "Выбрать товары";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cargoBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(480, 120);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(217, 21);
-            this.comboBox1.TabIndex = 25;
+            this.cargoBox.FormattingEnabled = true;
+            this.cargoBox.Location = new System.Drawing.Point(480, 120);
+            this.cargoBox.Name = "cargoBox";
+            this.cargoBox.Size = new System.Drawing.Size(217, 21);
+            this.cargoBox.TabIndex = 25;
             // 
             // radioButton4
             // 
@@ -294,15 +303,15 @@
             this.radioButton4.Text = "Задать параметры груза";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // chooseTruck
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(109, 428);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 32);
-            this.button2.TabIndex = 28;
-            this.button2.Text = "Выбрать транспорт";
-            this.button2.UseVisualStyleBackColor = true;
+            this.chooseTruck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.chooseTruck.Location = new System.Drawing.Point(109, 428);
+            this.chooseTruck.Name = "chooseTruck";
+            this.chooseTruck.Size = new System.Drawing.Size(145, 32);
+            this.chooseTruck.TabIndex = 28;
+            this.chooseTruck.Text = "Выбрать транспорт";
+            this.chooseTruck.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -328,61 +337,144 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 9);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1083, 563);
+            this.tabControl1.Size = new System.Drawing.Size(1087, 563);
             this.tabControl1.TabIndex = 31;
             // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Controls.Add(this.transport);
+            this.tabPage1.Controls.Add(this.truckBox);
             this.tabPage1.Controls.Add(this.textBox4);
             this.tabPage1.Controls.Add(this.radioButton1);
             this.tabPage1.Controls.Add(this.radioButton4);
-            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.chooseTruck);
             this.tabPage1.Controls.Add(this.radioButton3);
             this.tabPage1.Controls.Add(this.radioButton2);
-            this.tabPage1.Controls.Add(this.comboBox1);
+            this.tabPage1.Controls.Add(this.cargoBox);
             this.tabPage1.Controls.Add(this.textBox3);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.createReport);
             this.tabPage1.Controls.Add(this.textBox2);
             this.tabPage1.Controls.Add(this.listBox1);
             this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.addBox);
+            this.tabPage1.Controls.Add(this.chooseCargo);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label7);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.madeScheme);
             this.tabPage1.Controls.Add(this.weight);
             this.tabPage1.Controls.Add(this.width);
             this.tabPage1.Controls.Add(this.height);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1075, 537);
+            this.tabPage1.Size = new System.Drawing.Size(1079, 537);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Загрузить товары";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.loadData);
+            this.tabPage2.Controls.Add(this.label10);
+            this.tabPage2.Controls.Add(this.tableBox);
+            this.tabPage2.Controls.Add(this.deleteData);
+            this.tabPage2.Controls.Add(this.saveData);
+            this.tabPage2.Controls.Add(this.addData);
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1075, 537);
+            this.tabPage2.Size = new System.Drawing.Size(1079, 537);
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "Справочники";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label11.Location = new System.Drawing.Point(734, 232);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(134, 17);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Работа с таблицой";
+            // 
+            // loadData
+            // 
+            this.loadData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loadData.Location = new System.Drawing.Point(921, 116);
+            this.loadData.Name = "loadData";
+            this.loadData.Size = new System.Drawing.Size(130, 32);
+            this.loadData.TabIndex = 17;
+            this.loadData.Text = "Загрузить данные";
+            this.loadData.UseVisualStyleBackColor = true;
+            this.loadData.Click += new System.EventHandler(this.loadData_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(705, 25);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(376, 40);
+            this.label10.TabIndex = 16;
+            this.label10.Text = "Выберите таблицу для добавления, изменения \r\nили удаления данных";
+            // 
+            // tableBox
+            // 
+            this.tableBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tableBox.FormattingEnabled = true;
+            this.tableBox.Items.AddRange(new object[] {
+            "Транспортные средства",
+            "Товары"});
+            this.tableBox.Location = new System.Drawing.Point(726, 124);
+            this.tableBox.Name = "tableBox";
+            this.tableBox.Size = new System.Drawing.Size(152, 24);
+            this.tableBox.TabIndex = 15;
+            // 
+            // deleteData
+            // 
+            this.deleteData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.deleteData.Location = new System.Drawing.Point(902, 286);
+            this.deleteData.Name = "deleteData";
+            this.deleteData.Size = new System.Drawing.Size(130, 32);
+            this.deleteData.TabIndex = 14;
+            this.deleteData.Text = "Удалить";
+            this.deleteData.UseVisualStyleBackColor = true;
+            this.deleteData.Click += new System.EventHandler(this.deleteData_Click);
+            // 
+            // saveData
+            // 
+            this.saveData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.saveData.Location = new System.Drawing.Point(801, 366);
+            this.saveData.Name = "saveData";
+            this.saveData.Size = new System.Drawing.Size(155, 45);
+            this.saveData.TabIndex = 13;
+            this.saveData.Text = "Сохранить изменения";
+            this.saveData.UseVisualStyleBackColor = true;
+            this.saveData.Click += new System.EventHandler(this.saveData_Click);
+            // 
+            // addData
+            // 
+            this.addData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addData.Location = new System.Drawing.Point(737, 286);
+            this.addData.Name = "addData";
+            this.addData.Size = new System.Drawing.Size(130, 32);
+            this.addData.TabIndex = 12;
+            this.addData.Text = "Добавить";
+            this.addData.UseVisualStyleBackColor = true;
+            this.addData.Click += new System.EventHandler(this.addData_Click);
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(17, 15);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(518, 510);
+            this.dataGridView1.Size = new System.Drawing.Size(683, 510);
             this.dataGridView1.TabIndex = 0;
             // 
             // database1DataSet
@@ -395,11 +487,16 @@
             this.database1DataSetBindingSource.DataSource = this.database1DataSet;
             this.database1DataSetBindingSource.Position = 0;
             // 
+            // database1DataSetBindingSource1
+            // 
+            this.database1DataSetBindingSource1.DataSource = this.database1DataSet;
+            this.database1DataSetBindingSource1.Position = 0;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1106, 581);
+            this.ClientSize = new System.Drawing.Size(1111, 581);
             this.Controls.Add(this.tabControl1);
             this.Name = "Main";
             this.Text = "Транспортная логистика";
@@ -407,23 +504,25 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.database1DataSetBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox transport;
+        private System.Windows.Forms.Button madeScheme;
+        private System.Windows.Forms.ComboBox truckBox;
         private System.Windows.Forms.TextBox width;
         private System.Windows.Forms.TextBox height;
         private System.Windows.Forms.TextBox weight;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button addBox;
+        private System.Windows.Forms.Button chooseCargo;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button createReport;
         private System.Windows.Forms.Label label6;
@@ -437,9 +536,9 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cargoBox;
         private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button chooseTruck;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TabControl tabControl1;
@@ -448,6 +547,14 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource database1DataSetBindingSource;
         private Database1DataSet database1DataSet;
+        private System.Windows.Forms.Button deleteData;
+        private System.Windows.Forms.Button saveData;
+        private System.Windows.Forms.Button addData;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button loadData;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox tableBox;
+        private System.Windows.Forms.BindingSource database1DataSetBindingSource1;
     }
 }
 
