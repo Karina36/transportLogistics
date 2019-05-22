@@ -21,6 +21,7 @@ namespace TransportLogistics
         {
 
             //this.reportViewer1.RefreshReport();
+            this.reportViewer1.RefreshReport();
         }
     }
 }
