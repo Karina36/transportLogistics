@@ -19,8 +19,6 @@ namespace TransportLogistics
 
         private void Report_Load(object sender, EventArgs e)
         {
-
-            //this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
         }
     }

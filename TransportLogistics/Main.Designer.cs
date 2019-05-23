@@ -179,6 +179,7 @@
             this.createReport.TabIndex = 13;
             this.createReport.Text = "Создать отчет";
             this.createReport.UseVisualStyleBackColor = true;
+            this.createReport.Click += new System.EventHandler(this.createReport_Click);
             // 
             // label6
             // 
@@ -622,7 +623,7 @@
             this.deleteData.Name = "deleteData";
             this.deleteData.Size = new System.Drawing.Size(130, 32);
             this.deleteData.TabIndex = 14;
-            this.deleteData.Text = "Удалить";
+            this.deleteData.Text = "Удалить строку";
             this.deleteData.UseVisualStyleBackColor = true;
             this.deleteData.Click += new System.EventHandler(this.deleteData_Click);
             // 
@@ -644,7 +645,7 @@
             this.addData.Name = "addData";
             this.addData.Size = new System.Drawing.Size(130, 32);
             this.addData.TabIndex = 12;
-            this.addData.Text = "Добавить";
+            this.addData.Text = "Добавить строку";
             this.addData.UseVisualStyleBackColor = true;
             this.addData.Click += new System.EventHandler(this.addData_Click);
             // 

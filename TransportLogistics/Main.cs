@@ -105,13 +105,13 @@ namespace TransportLogistics
             try
             {
                 adapterDGV.Update((DataTable)bindingSource1.DataSource);
+                GetData(adapterDGV.SelectCommand.CommandText);
+                loadComboBox();
             }
             catch
             {
                 MessageBox.Show("Ошибка при сохранении данных");
             }
-            GetData(adapterDGV.SelectCommand.CommandText);
-            loadComboBox();
         }
 
         private void chooseTruck_Click(object sender, EventArgs e)
@@ -168,6 +168,13 @@ namespace TransportLogistics
         private void madeScheme_Click(object sender, EventArgs e)
         {
             Scheme f1 = new Scheme();
+            f1.Show();
+            this.Hide();
+        }
+
+        private void createReport_Click(object sender, EventArgs e)
+        {
+            Report f1 = new Report();
             f1.Show();
         }
     }

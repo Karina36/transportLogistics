@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SharpGL;
 
 namespace TransportLogistics
 {
@@ -16,5 +17,19 @@ namespace TransportLogistics
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Main f1 = new Main();
+            f1.Show();
+            this.Close();
+        }
+
+        private void Scheme_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Main f1 = new Main();
+            f1.Show();
+        }
     }
 }
+
