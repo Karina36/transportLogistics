@@ -28,15 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.Database1DataSet2 = new TransportLogistics.Database1DataSet2();
+            this.CargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.CargoTableAdapter = new TransportLogistics.Database1DataSet2TableAdapters.CargoTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.Database1DataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CargoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
+            reportDataSource1.Name = "Cargo";
+            reportDataSource1.Value = this.CargoBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "TransportLogistics.ListofCargo.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(12, 12);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.Size = new System.Drawing.Size(673, 771);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // Database1DataSet2
+            // 
+            this.Database1DataSet2.DataSetName = "Database1DataSet2";
+            this.Database1DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // CargoBindingSource
+            // 
+            this.CargoBindingSource.DataMember = "Cargo";
+            this.CargoBindingSource.DataSource = this.Database1DataSet2;
+            // 
+            // CargoTableAdapter
+            // 
+            this.CargoTableAdapter.ClearBeforeFill = true;
             // 
             // Report
             // 
@@ -47,12 +72,17 @@
             this.Name = "Report";
             this.Text = "Report";
             this.Load += new System.EventHandler(this.Report_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Database1DataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CargoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        public Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private System.Windows.Forms.BindingSource CargoBindingSource;
+        private Database1DataSet2 Database1DataSet2;
+        private Database1DataSet2TableAdapters.CargoTableAdapter CargoTableAdapter;
     }
 }

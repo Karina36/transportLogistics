@@ -20,8 +20,6 @@ namespace TransportLogistics
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Main f1 = new Main();
-            f1.Show();
             this.Close();
         }
 

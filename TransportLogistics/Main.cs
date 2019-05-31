@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,16 +17,23 @@ namespace TransportLogistics
     public partial class Main : Form
     {
         DataSet ds = new DataSet();
+        DataSet reportD = new DataSet();
+        bool a = true;
         SqlDataAdapter adapter;
         SqlDataAdapter adapterDGV;
         SqlConnection connection;
+        DataTable dt;
         BindingSource bindingSource1 = new BindingSource();
         DataTable table;
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\Моя_папка\агу\ВКР\прога\TransportLogistics\TransportLogistics\Database1.mdf;Integrated Security=True";
-        string tableName = "Truck";
+        string truck;
+        //DirectoryInfo info = new DirectoryInfo(".");
+        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\Моя_папка\агу\ВКР\прога\TransportLogistics\TransportLogistics\Database1.mdf;Integrated Security=true";
+        //string connectionString = @"Data Source =.\SQLEXPRESS;Database=myuniquedb;Initial Catalog=Database1.mdf;Integrated Security = True; User Instance = True";
+        string tableName = "Truck"; string colomnName = "carrying as 'Грузоподъемность'";
 
         public Main()
         {
+            //private static stringappdataroamingfolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); 
             InitializeComponent();
             loadComboBox();
         }
@@ -62,16 +71,18 @@ namespace TransportLogistics
             }
             catch
             {
-                MessageBox.Show("");
+                MessageBox.Show("Ошибка загрузки данных!");
             }
         }
 
         private void loadData_Click(object sender, EventArgs e)
         {
-            if (tableBox.Text == "Товары") tableName = "Cargo"; else tableName = "Truck";
-            GetData("select * from " + tableName);
+            if (tableBox.Text == "Товары") { tableName = "Cargo"; colomnName = "weight as 'Вес'"; }
+            else { tableName = "Truck"; colomnName = "carrying as 'Грузоподъемность'"; }
+            GetData("select Id, name as 'Название', width as 'Ширина', height as 'Высота', length as 'Длинна', " + colomnName + " from " + tableName);
             dataGridView1.DataSource = bindingSource1;
-            dataGridView1.Columns[0].ReadOnly = true;
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.AutoResizeColumn(1);
         }
 
         private void addData_Click(object sender, EventArgs e)
@@ -117,14 +128,13 @@ namespace TransportLogistics
         private void chooseTruck_Click(object sender, EventArgs e)
         {
             ds.Clear();
-            string truck;
             adapter = new SqlDataAdapter("SELECT * FROM Truck where Id =" + truckBox.SelectedValue, connection);
             adapter.Fill(ds);
             if (radioTruckBD.Checked)
             {
                 selectedTruck.Text = "Параметры выбранного транспорта:" + "\nШирина: " + ds.Tables[0].Rows[0].ItemArray[2] + "\nВысота: " + ds.Tables[0].Rows[0].ItemArray[3]
                     + "\nДлинна: " + ds.Tables[0].Rows[0].ItemArray[4] + "\nГрузоподъемность: " + ds.Tables[0].Rows[0].ItemArray[5];
-                truck = "" + ds.Tables[0].Rows[0].ItemArray[2] + "," + ds.Tables[0].Rows[0].ItemArray[3] + "," + ds.Tables[0].Rows[0].ItemArray[4] + "," + ds.Tables[0].Rows[0].ItemArray[5];
+                truck = truckBox.Text + "(" + ds.Tables[0].Rows[0].ItemArray[2] + "," + ds.Tables[0].Rows[0].ItemArray[3] + "," + ds.Tables[0].Rows[0].ItemArray[4] + "," + ds.Tables[0].Rows[0].ItemArray[5]+")";
             }
             else if(radioTruck.Checked)
             {
@@ -137,20 +147,40 @@ namespace TransportLogistics
         private void chooseCargo_Click(object sender, EventArgs e)
         {
             ds.Clear();
-            string a  = truckBox.Text;
-            adapter = new SqlDataAdapter("SELECT * FROM Cargo where Id =" + cargoBox.SelectedValue, connection);
-            adapter.Fill(ds);
-            if (radioCargoBD.Checked)
+            if (a)
             {
-                listBox1.Items.Add(cargoBox.Text + " " + numericUpDown10.Value + " шт.");
-
+                dt = new DataTable();
+                dt.Columns.Add(new DataColumn("name", typeof(string)));
+                dt.Columns.Add(new DataColumn("width", typeof(int)));
+                dt.Columns.Add(new DataColumn("length", typeof(int)));
             }
-            else if(radioCargo.Checked)
+            
+            DataRow dr = dt.NewRow();
+            if (numericUpDown10.Value <= 0) MessageBox.Show("Выберите количесвто товаров для погрузки");
+            else
             {
-                if (String.IsNullOrWhiteSpace(textBox1.Text)) MessageBox.Show("Введите название для товара"); 
-                else listBox1.Items.Add(textBox1.Text + " " + numericUpDown10.Value + " шт.");
+                adapter = new SqlDataAdapter("SELECT * FROM Cargo where Id =" + cargoBox.SelectedValue, connection);
+                adapter.Fill(ds);
+                if (radioCargoBD.Checked)
+                {
+                    listBox1.Items.Add(cargoBox.Text + " " + numericUpDown10.Value + " шт.");
+                    dr[0] = cargoBox.Text; dr[1] = numericUpDown10.Value; dr[2] = numericUpDown9.Value;
+                    dt.Rows.Add(dr);
+                }
+                else if (radioCargo.Checked)
+                {
+                    if (String.IsNullOrWhiteSpace(textBox1.Text)) MessageBox.Show("Введите название для товара");
+                    else
+                    {
+                        listBox1.Items.Add(textBox1.Text + " " + numericUpDown10.Value + " шт.");
+                        dr[0] = textBox1.Text; dr[1] = numericUpDown10.Value; dr[2] = numericUpDown9.Value;
+                        dt.Rows.Add(dr);
+                    }
+                }
+                else MessageBox.Show("Выберите вариант задания параметров грузов");
+                
             }
-            else MessageBox.Show("Выберите вариант задания параметров грузов");
+            a = false;
         }
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -174,8 +204,27 @@ namespace TransportLogistics
 
         private void createReport_Click(object sender, EventArgs e)
         {
-            Report f1 = new Report();
-            f1.Show();
+            reportD.Clear();
+            reportD.Tables.Add(dt);
+            Report form = new Report();
+
+            LocalReport localReport = form.reportViewer1.LocalReport;
+            form.reportViewer1.LocalReport.ReportEmbeddedResource = "TransportLogistics.ListofCargo.rdlc";
+            List<ReportParameter> reportParameters = new List<ReportParameter>();
+            reportParameters.Add(new ReportParameter("truck", truck));
+
+
+            form.reportViewer1.ProcessingMode = ProcessingMode.Local;
+            form.reportViewer1.LocalReport.DataSources.Clear();
+            ReportDataSource reportCargo = new ReportDataSource("Cargo", reportD.Tables[0]);
+            form.reportViewer1.LocalReport.DataSources.Add(reportCargo);
+            //reportCargo.Value = (ds.Tables[0]);
+            //localReport.DataSources.Add(new ReportDataSource("Cargo", reportCargo.Value));
+
+            localReport.SetParameters(reportParameters);
+            form.reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
+            form.reportViewer1.RefreshReport();
+            form.Show();
         }
     }
 }

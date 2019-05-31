@@ -104,7 +104,7 @@
             // madeScheme
             // 
             this.madeScheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.madeScheme.Location = new System.Drawing.Point(799, 481);
+            this.madeScheme.Location = new System.Drawing.Point(796, 519);
             this.madeScheme.Name = "madeScheme";
             this.madeScheme.Size = new System.Drawing.Size(130, 32);
             this.madeScheme.TabIndex = 1;
@@ -124,7 +124,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(514, 250);
+            this.label3.Location = new System.Drawing.Point(514, 312);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(111, 15);
             this.label3.TabIndex = 8;
@@ -134,7 +134,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(514, 287);
+            this.label4.Location = new System.Drawing.Point(514, 349);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(110, 15);
             this.label4.TabIndex = 9;
@@ -144,7 +144,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(514, 324);
+            this.label5.Location = new System.Drawing.Point(514, 386);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(160, 15);
             this.label5.TabIndex = 10;
@@ -153,7 +153,7 @@
             // chooseCargo
             // 
             this.chooseCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chooseCargo.Location = new System.Drawing.Point(519, 444);
+            this.chooseCargo.Location = new System.Drawing.Point(517, 471);
             this.chooseCargo.Name = "chooseCargo";
             this.chooseCargo.Size = new System.Drawing.Size(130, 32);
             this.chooseCargo.TabIndex = 11;
@@ -173,7 +173,7 @@
             // createReport
             // 
             this.createReport.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.createReport.Location = new System.Drawing.Point(949, 481);
+            this.createReport.Location = new System.Drawing.Point(946, 519);
             this.createReport.Name = "createReport";
             this.createReport.Size = new System.Drawing.Size(130, 32);
             this.createReport.TabIndex = 13;
@@ -207,7 +207,7 @@
             // 
             this.radioTruck.AutoSize = true;
             this.radioTruck.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioTruck.Location = new System.Drawing.Point(10, 184);
+            this.radioTruck.Location = new System.Drawing.Point(10, 228);
             this.radioTruck.Name = "radioTruck";
             this.radioTruck.Size = new System.Drawing.Size(341, 21);
             this.radioTruck.TabIndex = 17;
@@ -219,7 +219,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(7, 388);
+            this.label1.Location = new System.Drawing.Point(8, 413);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(209, 15);
             this.label1.TabIndex = 23;
@@ -229,7 +229,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(7, 302);
+            this.label7.Location = new System.Drawing.Point(8, 327);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(110, 15);
             this.label7.TabIndex = 22;
@@ -239,7 +239,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(7, 259);
+            this.label8.Location = new System.Drawing.Point(8, 284);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(111, 15);
             this.label8.TabIndex = 21;
@@ -279,7 +279,7 @@
             // 
             this.radioCargo.AutoSize = true;
             this.radioCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioCargo.Location = new System.Drawing.Point(503, 175);
+            this.radioCargo.Location = new System.Drawing.Point(506, 238);
             this.radioCargo.Name = "radioCargo";
             this.radioCargo.Size = new System.Drawing.Size(299, 21);
             this.radioCargo.TabIndex = 27;
@@ -290,7 +290,7 @@
             // chooseTruck
             // 
             this.chooseTruck.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.chooseTruck.Location = new System.Drawing.Point(97, 453);
+            this.chooseTruck.Location = new System.Drawing.Point(98, 480);
             this.chooseTruck.Name = "chooseTruck";
             this.chooseTruck.Size = new System.Drawing.Size(145, 32);
             this.chooseTruck.TabIndex = 28;
@@ -302,11 +302,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(514, 398);
+            this.label2.Location = new System.Drawing.Point(514, 159);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 30);
+            this.label2.Size = new System.Drawing.Size(135, 15);
             this.label2.TabIndex = 30;
-            this.label2.Text = "Выберите приоритет \r\n(от 1 до 50)";
+            this.label2.Text = "Выберите приоритет ";
             // 
             // tabControl1
             // 
@@ -316,7 +316,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 9);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1096, 563);
+            this.tabControl1.Size = new System.Drawing.Size(1096, 593);
             this.tabControl1.TabIndex = 31;
             // 
             // tabPage1
@@ -347,14 +347,14 @@
             this.tabPage1.Controls.Add(this.madeScheme);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(1088, 534);
+            this.tabPage1.Size = new System.Drawing.Size(1088, 564);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Загрузить товары";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // numericUpDown10
             // 
-            this.numericUpDown10.Location = new System.Drawing.Point(724, 118);
+            this.numericUpDown10.Location = new System.Drawing.Point(724, 198);
             this.numericUpDown10.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -363,12 +363,17 @@
             this.numericUpDown10.Name = "numericUpDown10";
             this.numericUpDown10.Size = new System.Drawing.Size(111, 23);
             this.numericUpDown10.TabIndex = 50;
+            this.numericUpDown10.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label15.Location = new System.Drawing.Point(724, 85);
+            this.label15.Location = new System.Drawing.Point(514, 200);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(107, 15);
             this.label15.TabIndex = 45;
@@ -377,7 +382,7 @@
             // deleteCargo
             // 
             this.deleteCargo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.deleteCargo.Location = new System.Drawing.Point(675, 444);
+            this.deleteCargo.Location = new System.Drawing.Point(673, 471);
             this.deleteCargo.Name = "deleteCargo";
             this.deleteCargo.Size = new System.Drawing.Size(130, 32);
             this.deleteCargo.TabIndex = 49;
@@ -387,7 +392,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(694, 216);
+            this.textBox1.Location = new System.Drawing.Point(724, 278);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(111, 23);
             this.textBox1.TabIndex = 48;
@@ -396,7 +401,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label14.Location = new System.Drawing.Point(514, 219);
+            this.label14.Location = new System.Drawing.Point(514, 281);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(102, 15);
             this.label14.TabIndex = 47;
@@ -418,16 +423,16 @@
             this.groupBox1.Controls.Add(this.chooseTruck);
             this.groupBox1.Controls.Add(this.numericUpDown4);
             this.groupBox1.Controls.Add(this.radioTruckBD);
-            this.groupBox1.Location = new System.Drawing.Point(-2, -9);
+            this.groupBox1.Location = new System.Drawing.Point(-2, -6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(495, 546);
+            this.groupBox1.Size = new System.Drawing.Size(495, 574);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
             // 
             // selectedTruck
             // 
             this.selectedTruck.AutoSize = true;
-            this.selectedTruck.Location = new System.Drawing.Point(230, 87);
+            this.selectedTruck.Location = new System.Drawing.Point(230, 94);
             this.selectedTruck.Name = "selectedTruck";
             this.selectedTruck.Size = new System.Drawing.Size(251, 85);
             this.selectedTruck.TabIndex = 44;
@@ -435,7 +440,7 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(232, 257);
+            this.numericUpDown1.Location = new System.Drawing.Point(233, 282);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -447,7 +452,7 @@
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(232, 300);
+            this.numericUpDown2.Location = new System.Drawing.Point(233, 325);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -461,7 +466,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label12.Location = new System.Drawing.Point(7, 345);
+            this.label12.Location = new System.Drawing.Point(8, 370);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(102, 15);
             this.label12.TabIndex = 32;
@@ -469,7 +474,7 @@
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(232, 343);
+            this.numericUpDown3.Location = new System.Drawing.Point(233, 368);
             this.numericUpDown3.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -481,7 +486,7 @@
             // 
             // numericUpDown4
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(232, 386);
+            this.numericUpDown4.Location = new System.Drawing.Point(233, 411);
             this.numericUpDown4.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -493,14 +498,19 @@
             // 
             // numericUpDown9
             // 
-            this.numericUpDown9.Location = new System.Drawing.Point(694, 398);
+            this.numericUpDown9.Location = new System.Drawing.Point(724, 157);
             this.numericUpDown9.Name = "numericUpDown9";
             this.numericUpDown9.Size = new System.Drawing.Size(111, 23);
             this.numericUpDown9.TabIndex = 43;
+            this.numericUpDown9.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // numericUpDown5
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(694, 359);
+            this.numericUpDown5.Location = new System.Drawing.Point(724, 421);
             this.numericUpDown5.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -512,7 +522,7 @@
             // 
             // numericUpDown6
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(694, 322);
+            this.numericUpDown6.Location = new System.Drawing.Point(724, 384);
             this.numericUpDown6.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -524,7 +534,7 @@
             // 
             // numericUpDown7
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(694, 285);
+            this.numericUpDown7.Location = new System.Drawing.Point(724, 347);
             this.numericUpDown7.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -536,7 +546,7 @@
             // 
             // numericUpDown8
             // 
-            this.numericUpDown8.Location = new System.Drawing.Point(694, 248);
+            this.numericUpDown8.Location = new System.Drawing.Point(724, 310);
             this.numericUpDown8.Maximum = new decimal(new int[] {
             10000,
             0,
@@ -550,7 +560,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label13.Location = new System.Drawing.Point(514, 361);
+            this.label13.Location = new System.Drawing.Point(514, 423);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(102, 15);
             this.label13.TabIndex = 34;
@@ -581,7 +591,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(153, 20);
             this.label11.TabIndex = 18;
-            this.label11.Text = "Работа с таблицой";
+            this.label11.Text = "Работа с таблицей";
             // 
             // loadData
             // 
@@ -677,7 +687,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1120, 581);
+            this.ClientSize = new System.Drawing.Size(1120, 614);
             this.Controls.Add(this.tabControl1);
             this.Name = "Main";
             this.Text = "Транспортная логистика";
