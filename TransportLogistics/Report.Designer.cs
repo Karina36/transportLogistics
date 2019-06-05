@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.Database1DataSet2 = new TransportLogistics.Database1DataSet2();
+            this.Database1DataSet2 = new Database1DataSet2();
             this.CargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.CargoTableAdapter = new TransportLogistics.Database1DataSet2TableAdapters.CargoTableAdapter();
+            this.CargoTableAdapter = new Database1DataSet2TableAdapters.CargoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.Database1DataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CargoBindingSource)).BeginInit();
             this.SuspendLayout();

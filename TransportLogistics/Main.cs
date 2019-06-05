@@ -26,14 +26,14 @@ namespace TransportLogistics
         BindingSource bindingSource1 = new BindingSource();
         DataTable table;
         string truck;
-        //DirectoryInfo info = new DirectoryInfo(".");
-        string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=F:\Моя_папка\агу\ВКР\прога\TransportLogistics\TransportLogistics\Database1.mdf;Integrated Security=true";
+        DirectoryInfo info = new DirectoryInfo(".");
+        string connectionString;
         //string connectionString = @"Data Source =.\SQLEXPRESS;Database=myuniquedb;Initial Catalog=Database1.mdf;Integrated Security = True; User Instance = True";
         string tableName = "Truck"; string colomnName = "carrying as 'Грузоподъемность'";
 
         public Main()
         {
-            //private static stringappdataroamingfolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); 
+            connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + info.FullName.Substring(0, info.FullName.Length - 10) + "\\Database1.mdf;Integrated Security=true";
             InitializeComponent();
             loadComboBox();
         }
