@@ -33,7 +33,6 @@
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.Database1DataSet2 = new Database1DataSet2();
             this.CargoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.CargoTableAdapter = new Database1DataSet2TableAdapters.CargoTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.Database1DataSet2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CargoBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -51,9 +50,6 @@
             // 
             // Database1DataSet2
             // 
-            this.Database1DataSet2.DataSetName = "Database1DataSet2";
-            this.Database1DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // CargoBindingSource
             // 
             this.CargoBindingSource.DataMember = "Cargo";
@@ -61,7 +57,6 @@
             // 
             // CargoTableAdapter
             // 
-            this.CargoTableAdapter.ClearBeforeFill = true;
             // 
             // Report
             // 
@@ -83,6 +78,5 @@
         public Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource CargoBindingSource;
         private Database1DataSet2 Database1DataSet2;
-        private Database1DataSet2TableAdapters.CargoTableAdapter CargoTableAdapter;
     }
 }

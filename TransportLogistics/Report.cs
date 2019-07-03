@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace TransportLogistics
 {
@@ -22,7 +23,8 @@ namespace TransportLogistics
 
         private void Report_Load(object sender, EventArgs e)
         {
-            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\TransportLogistics\Database1.mdf;Integrated Security=True";
+            DirectoryInfo info = new DirectoryInfo(".");
+            string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + info.FullName.Substring(0, info.FullName.Length - 10) + "\\Database1.mdf;Integrated Security=true";
             DataSet dataset = new DataSet();
             SqlConnection connection = new SqlConnection(connectionString);
             SqlDataAdapter adapter = new SqlDataAdapter("SELECT * FROM Cargo", connection);

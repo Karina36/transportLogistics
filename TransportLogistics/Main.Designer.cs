@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.madeScheme = new System.Windows.Forms.Button();
             this.truckBox = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -98,17 +97,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.database1DataSetBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // madeScheme
-            // 
-            this.madeScheme.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.madeScheme.Location = new System.Drawing.Point(796, 519);
-            this.madeScheme.Name = "madeScheme";
-            this.madeScheme.Size = new System.Drawing.Size(130, 32);
-            this.madeScheme.TabIndex = 1;
-            this.madeScheme.Text = "Построить схему";
-            this.madeScheme.UseVisualStyleBackColor = true;
-            this.madeScheme.Click += new System.EventHandler(this.madeScheme_Click);
             // 
             // truckBox
             // 
@@ -342,7 +330,6 @@
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label4);
             this.tabPage1.Controls.Add(this.label3);
-            this.tabPage1.Controls.Add(this.madeScheme);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(1088, 564);
@@ -576,7 +563,7 @@
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(1088, 534);
+            this.tabPage2.Size = new System.Drawing.Size(1088, 564);
             this.tabPage2.TabIndex = 0;
             this.tabPage2.Text = "Справочники";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -699,7 +686,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button madeScheme;
         private System.Windows.Forms.ComboBox truckBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

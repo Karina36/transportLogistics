@@ -22,13 +22,13 @@ namespace TransportLogistics
         SqlDataAdapter adapter;
         SqlDataAdapter adapterDGV;
         SqlConnection connection;
-        DataTable dt;
+        DataTable dt = new DataTable();
+        DataTable cargoData = new DataTable();
         BindingSource bindingSource1 = new BindingSource();
         DataTable table;
-        string truck;
+        string[] truck = new string[6];
         DirectoryInfo info = new DirectoryInfo(".");
         string connectionString;
-        //string connectionString = @"Data Source =.\SQLEXPRESS;Database=myuniquedb;Initial Catalog=Database1.mdf;Integrated Security = True; User Instance = True";
         string tableName = "Truck"; string colomnName = "carrying as 'Грузоподъемность'";
 
         public Main()
@@ -36,6 +36,12 @@ namespace TransportLogistics
             connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=" + info.FullName.Substring(0, info.FullName.Length - 10) + "\\Database1.mdf;Integrated Security=true";
             InitializeComponent();
             loadComboBox();
+            cargoData.Columns.Add(new DataColumn("name", typeof(string)));
+            cargoData.Columns.Add(new DataColumn("sum", typeof(int)));
+            cargoData.Columns.Add(new DataColumn("prior", typeof(int)));
+            cargoData.Columns.Add(new DataColumn("height", typeof(int)));
+            cargoData.Columns.Add(new DataColumn("width", typeof(int)));
+            cargoData.Columns.Add(new DataColumn("length", typeof(int)));
         }
 
         private void loadComboBox()
@@ -64,7 +70,7 @@ namespace TransportLogistics
                 };
                 adapterDGV.Fill(table);
                 bindingSource1.DataSource = table;
-                
+
 
                 dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
                 dataGridView1.AllowUserToAddRows = false;
@@ -87,7 +93,7 @@ namespace TransportLogistics
 
         private void addData_Click(object sender, EventArgs e)
         {
-            if(dataGridView1.DataSource != null) table.Rows.Add();
+            if (dataGridView1.DataSource != null) table.Rows.Add();
             else MessageBox.Show("Выберите и загрузить таблицу");
         }
 
@@ -134,12 +140,12 @@ namespace TransportLogistics
             {
                 selectedTruck.Text = "Параметры выбранного транспорта:" + "\nШирина: " + ds.Tables[0].Rows[0].ItemArray[2] + "\nВысота: " + ds.Tables[0].Rows[0].ItemArray[3]
                     + "\nДлинна: " + ds.Tables[0].Rows[0].ItemArray[4] + "\nГрузоподъемность: " + ds.Tables[0].Rows[0].ItemArray[5];
-                truck = truckBox.Text + "(" + ds.Tables[0].Rows[0].ItemArray[2] + "," + ds.Tables[0].Rows[0].ItemArray[3] + "," + ds.Tables[0].Rows[0].ItemArray[4] + "," + ds.Tables[0].Rows[0].ItemArray[5]+")";
+                truck[0] = truckBox.Text; truck[1] = ds.Tables[0].Rows[0].ItemArray[2].ToString(); truck[2] = ds.Tables[0].Rows[0].ItemArray[3].ToString(); truck[3] = ds.Tables[0].Rows[0].ItemArray[4].ToString(); truck[4] = ds.Tables[0].Rows[0].ItemArray[5].ToString();
             }
-            else if(radioTruck.Checked)
+            else if (radioTruck.Checked)
             {
                 selectedTruck.Text = "Параметры выбранного транспорта:" + "\nШирина: " + numericUpDown1.Value + "\nВысота: " + numericUpDown2.Value + "\nДлинна: " + numericUpDown3.Value + "\nГрузоподъемность: " + numericUpDown4.Value;
-                truck = "" + numericUpDown1.Value + "," + numericUpDown2.Value + "," + numericUpDown3.Value + "," + numericUpDown4.Value;
+                truck[0] = "Транспорт"; truck[1] = numericUpDown1.Value.ToString(); truck[2] = numericUpDown2.Value.ToString(); truck[3] = numericUpDown3.Value.ToString(); truck[4] = numericUpDown4.Value.ToString();
             }
             else MessageBox.Show("Выберите вариант задания параметров транспортного средства");
         }
@@ -154,8 +160,9 @@ namespace TransportLogistics
                 dt.Columns.Add(new DataColumn("width", typeof(int)));
                 dt.Columns.Add(new DataColumn("length", typeof(int)));
             }
-            
+
             DataRow dr = dt.NewRow();
+            DataRow cargoRow = cargoData.NewRow();
             if (numericUpDown10.Value <= 0) MessageBox.Show("Выберите количесвто товаров для погрузки");
             else
             {
@@ -163,36 +170,60 @@ namespace TransportLogistics
                 adapter.Fill(ds);
                 if (radioCargoBD.Checked)
                 {
-                    listBox1.Items.Add(cargoBox.Text + " " + numericUpDown10.Value + " шт.");
-                    dr[0] = cargoBox.Text; dr[1] = numericUpDown10.Value; dr[2] = numericUpDown9.Value;
-                    dt.Rows.Add(dr);
+                    if (listBox1.Items.Contains(cargoBox.Text)) MessageBox.Show("Груз уже добавлен");
+                    else
+                    {
+                        listBox1.Items.Add(cargoBox.Text);
+                        dr[0] = cargoBox.Text; dr[1] = numericUpDown10.Value; dr[2] = numericUpDown9.Value;
+                        cargoRow[0] = cargoBox.Text; cargoRow[1] = numericUpDown10.Value; cargoRow[2] = numericUpDown9.Value; cargoRow[3] = ds.Tables[0].Rows[0].ItemArray[3].ToString();
+                        cargoRow[4] = ds.Tables[0].Rows[0].ItemArray[2].ToString(); cargoRow[5] = ds.Tables[0].Rows[0].ItemArray[4].ToString();
+                        cargoData.Rows.Add(cargoRow);
+                        dt.Rows.Add(dr);
+                    }
                 }
                 else if (radioCargo.Checked)
                 {
                     if (String.IsNullOrWhiteSpace(textBox1.Text)) MessageBox.Show("Введите название для товара");
                     else
                     {
-                        listBox1.Items.Add(textBox1.Text + " " + numericUpDown10.Value + " шт.");
-                        dr[0] = textBox1.Text; dr[1] = numericUpDown10.Value; dr[2] = numericUpDown9.Value;
-                        dt.Rows.Add(dr);
+                        if (listBox1.Items.Contains(textBox1.Text)) MessageBox.Show("Груз уже добавлен");
+                        else
+                        {
+                            listBox1.Items.Add(textBox1.Text);
+                            dr[0] = textBox1.Text; dr[1] = numericUpDown10.Value; dr[2] = numericUpDown9.Value;
+                            cargoRow[0] = cargoBox.Text; cargoRow[1] = numericUpDown10.Value; cargoRow[2] = numericUpDown9.Value; cargoRow[3] = numericUpDown7.Value;
+                            cargoRow[4] = numericUpDown8.Value; cargoRow[5] = numericUpDown5.Value;
+                            cargoData.Rows.Add(cargoRow);
+                            dt.Rows.Add(dr);
+                        }
                     }
                 }
                 else MessageBox.Show("Выберите вариант задания параметров грузов");
-                
+
             }
             a = false;
         }
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            MessageBox.Show("В " + (e.ColumnIndex+1).ToString() + " столбце введены неправильные данные");
+            MessageBox.Show("В " + (e.ColumnIndex + 1).ToString() + " столбце введены неправильные данные");
         }
 
         private void deleteCargo_Click(object sender, EventArgs e)
         {
-            try { listBox1.Items.RemoveAt(listBox1.SelectedIndex); }
+            try
+            {
+                for (int i = dt.Rows.Count - 1; i >= 0; i--)
+                {
+                    DataRow dr = dt.Rows[i];
+                    if (dr["name"].Equals(listBox1.SelectedItem))
+                        dr.Delete();
+                }
+                dt.AcceptChanges();
+                listBox1.Items.RemoveAt(listBox1.SelectedIndex);
+            }
             catch { MessageBox.Show("Выберите груз из списка"); }
-            
+
         }
 
         private void madeScheme_Click(object sender, EventArgs e)
@@ -204,27 +235,57 @@ namespace TransportLogistics
 
         private void createReport_Click(object sender, EventArgs e)
         {
-            reportD.Clear();
-            reportD.Tables.Add(dt);
-            Report form = new Report();
+            calc();
+            reportD.Tables.Clear();
+            try
+            {
+                reportD.Tables.Add(dt);
+                Report form = new Report();
 
-            LocalReport localReport = form.reportViewer1.LocalReport;
-            form.reportViewer1.LocalReport.ReportEmbeddedResource = "TransportLogistics.ListofCargo.rdlc";
-            List<ReportParameter> reportParameters = new List<ReportParameter>();
-            reportParameters.Add(new ReportParameter("truck", truck));
+                LocalReport localReport = form.reportViewer1.LocalReport;
+                form.reportViewer1.LocalReport.ReportEmbeddedResource = "TransportLogistics.ListofCargo.rdlc";
+                List<ReportParameter> reportParameters = new List<ReportParameter>();
+                reportParameters.Add(new ReportParameter("truck", truck[0] + "(" + truck[1] + "," + truck[2] + "," + truck[3] + "," + truck[4] + ")"));
 
 
-            form.reportViewer1.ProcessingMode = ProcessingMode.Local;
-            form.reportViewer1.LocalReport.DataSources.Clear();
-            ReportDataSource reportCargo = new ReportDataSource("Cargo", reportD.Tables[0]);
-            form.reportViewer1.LocalReport.DataSources.Add(reportCargo);
-            //reportCargo.Value = (ds.Tables[0]);
-            //localReport.DataSources.Add(new ReportDataSource("Cargo", reportCargo.Value));
+                form.reportViewer1.ProcessingMode = ProcessingMode.Local;
+                form.reportViewer1.LocalReport.DataSources.Clear();
+                ReportDataSource reportCargo = new ReportDataSource("Cargo", reportD.Tables[0]);
+                form.reportViewer1.LocalReport.DataSources.Add(reportCargo);
 
-            localReport.SetParameters(reportParameters);
-            form.reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
-            form.reportViewer1.RefreshReport();
-            form.Show();
+                localReport.SetParameters(reportParameters);
+                form.reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
+                form.reportViewer1.RefreshReport();
+                form.Show();
+            }
+            catch { MessageBox.Show("Ошибка при выборе грузов"); }
+
+
         }
+        private void calc()
+        {
+            int width = Convert.ToInt32(truck[1]) / Convert.ToInt32(cargoData.Rows[0][4]); int length = Convert.ToInt32(truck[3]) / Convert.ToInt32(cargoData.Rows[0][5]);
+            int height = Convert.ToInt32(truck[2]) / Convert.ToInt32(cargoData.Rows[0][3]);
+            int[] wlh1 = new int[4] { width, length, height, width*length*height };
+
+            width = Convert.ToInt32(truck[1]) / Convert.ToInt32(cargoData.Rows[0][3]); height = Convert.ToInt32(truck[2]) / Convert.ToInt32(cargoData.Rows[0][4]);
+            int[] hlw1 = new int[4] { width, length, height, width * length * height };
+
+            width = Convert.ToInt32(truck[1]) / Convert.ToInt32(cargoData.Rows[0][4]); length = Convert.ToInt32(truck[3]) / Convert.ToInt32(cargoData.Rows[0][3]);
+            height = Convert.ToInt32(truck[2]) / Convert.ToInt32(cargoData.Rows[0][5]);
+            int[] whl1 = new int[4] { width, length, height, width * length * height };
+
+            width = Convert.ToInt32(truck[1]) / Convert.ToInt32(cargoData.Rows[0][5]); length = Convert.ToInt32(truck[3]) / Convert.ToInt32(cargoData.Rows[0][4]);
+            height = Convert.ToInt32(truck[2]) / Convert.ToInt32(cargoData.Rows[0][3]);
+            int[] lwh1 = new int[4] { width, length, height, width * length * height };
+
+            length = Convert.ToInt32(truck[3]) / Convert.ToInt32(cargoData.Rows[0][3]); height = Convert.ToInt32(truck[2]) / Convert.ToInt32(cargoData.Rows[0][4]);
+            int[] lhw1 = new int[4] { width, length, height, width * length * height };
+
+            width = Convert.ToInt32(truck[1]) / Convert.ToInt32(cargoData.Rows[0][3]); length = Convert.ToInt32(truck[3]) / Convert.ToInt32(cargoData.Rows[0][4]);
+            height = Convert.ToInt32(truck[2]) / Convert.ToInt32(cargoData.Rows[0][5]);
+            int[] hwl1 = new int[4] { width, length, height, width * length * height };
+
+        } 
     }
 }
